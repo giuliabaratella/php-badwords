@@ -4,6 +4,9 @@ $censuredWord = $_GET["censured-word"];
 $paragraphLength = strlen($paragraph);
 $paragraphCensored = str_replace($censuredWord, '***', $paragraph);
 $censoredParagraphLength = strlen($paragraphCensored);
+$paragraphWordsLength = str_word_count($paragraph);
+$censoredParagraphWordsLength = str_word_count($paragraphCensored);
+
 
 ?>
 
@@ -21,7 +24,9 @@ $censoredParagraphLength = strlen($paragraphCensored);
 <body>
     <main class="container py-5">
         <h4>Ecco il tuo paragrafo di
-            <?php echo $paragraphLength; ?> caratteri
+            <?php echo $paragraphLength; ?> caratteri.
+            Il tuo paragrafo contiene
+            <?php echo $paragraphWordsLength; ?> parole.
         </h4>
         <p>
             <?php echo $paragraph; ?>
@@ -31,7 +36,8 @@ $censoredParagraphLength = strlen($paragraphCensored);
             <?php echo $paragraphCensored; ?>
         </p>
         <p>Il tuo paragrafo adesso contiene
-            <?php echo $censoredParagraphLength; ?> caratteri.
+            <?php echo $censoredParagraphLength; ?> caratteri. Adesso contiene
+            <?php echo $censoredParagraphWordsLength; ?> parole.
         </p>
     </main>
 

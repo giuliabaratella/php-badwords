@@ -1,6 +1,10 @@
 <?php
 $paragraph = $_GET["textarea"];
 $censuredWord = $_GET["censured-word"];
+$paragraphLength = strlen($paragraph);
+$paragraphCensored = str_replace($censuredWord, '***', $paragraph);
+$censoredParagraphLength = strlen($paragraphCensored);
+
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +20,18 @@ $censuredWord = $_GET["censured-word"];
 
 <body>
     <main class="container py-5">
+        <h4>Ecco il tuo paragrafo di
+            <?php echo $paragraphLength; ?> caratteri
+        </h4>
         <p>
             <?php echo $paragraph; ?>
+        </p>
+        <h4>Ed ecco il tuo paragrafo censurato</h4>
+        <p>
+            <?php echo $paragraphCensored; ?>
+        </p>
+        <p>Il tuo paragrafo adesso contiene
+            <?php echo $censoredParagraphLength; ?> caratteri.
         </p>
     </main>
 
